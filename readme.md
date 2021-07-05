@@ -1,4 +1,3 @@
-
 # Plot Graphs
 
 ## Shortcode :- 

@@ -7,32 +7,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $table_name = $wpdb -> prefix . "plot_type";
     $charset = $wpdb -> get_charset_collate();
     if($wpdb->get_var("show tables like '$table_name'") == $table_name){
-        if($wpdb->get_var( "SELECT COUNT(*) FROM $table_name" ) == 0){
-            $wpdb -> insert(
-                $table_name,
-                array(
-                    'id' => 1,
-                    'type' => $type
-                ),
-                array('%d', '%s')
-            );
-        }
-        else{
-            $wpdb -> update(
-                $table_name,
-                array(
-                    'type' => $type
-                ),
-                array(
-                    'id' => 1
-                )
-            );
-        }
+        add_type($table_name, $type);
     }
     else{
         create_teble($table_name);
     }
 }
+
+$default_type = get_type();
+
 ?>
 
 <div id="q-app" style="height:100vh">
@@ -45,13 +28,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <div class="flex flex-center q-mt-sm">
                         <q-btn label="Submit" type="submit" name="submit" color="primary" class="glossy"></q-btn>
                     </div>
+                    <input type="hidden" name="default_type" id="default_type" value="<?= $default_type ?>">
                 </form>
             </q-card-section>
         </q-card>
     </div>
 </div>
-</div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/quasar@2.0.1/dist/quasar.umd.prod.js"></script>

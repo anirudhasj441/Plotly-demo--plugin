@@ -1,3 +1,4 @@
+const bar_type = document.getElementById('default_type').value;
 const app = Vue.createApp({
     el: "#q-app",
     delimiters: ['{{', '}}'],
