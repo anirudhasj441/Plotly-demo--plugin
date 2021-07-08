@@ -14,7 +14,7 @@ const plot = document.getElementById('plot');
 const bar_type = document.getElementById('type').value;
 
 const layout = {
-    title: "Graphs"
+    title: "Graphs",
 }
 
 const data = [

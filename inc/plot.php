@@ -6,13 +6,11 @@ $type = $res -> type;
 ?>
 
 <div id="q-app">
-    <div class="q-pa-md">
-        <q-card>
-            <q-card-section>
-                <div id="plot"></div>
-            </q-card-section>
-        </q-card>
-    </div>
+    <q-card>
+        <q-card-section>
+            <div id="plot" class="bg-grey-9"></div>
+        </q-card-section>
+    </q-card>
 </div>
 
 <input type="hidden" name="type" id="type" value="<?= $type; ?>">
